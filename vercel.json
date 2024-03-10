@@ -1,7 +1,6 @@
 {
     "version": 2,
     "installCommand": "npm install",
-    "framework": "nestjs",
 
     "builds": [
       {

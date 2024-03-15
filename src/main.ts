@@ -7,19 +7,19 @@ async function bootstrap() {
 
   // app.enableCors({ origin: 'https://svtvapp.vercel.app', credentials: true });
 
-  // app.enableCors({
-  //   allowedHeaders: ["*"],
-  //   // origin: [
-  //   //   'http://localhost:3000',
-  //   //   'http://localhost:3000/',
-  //   //   'https://svtvapp.vercel.app',
-  //   //   'https://svtvapp.vercel.app/',
-  //   // ],
-  //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  //   // credentials: true,
-  // });
+  app.enableCors({
+    // allowedHeaders: ["*"],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3000/',
+      'https://svtvapp.vercel.app',
+      'https://svtvapp.vercel.app/',
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  });
 
-  app.enableCors({ allowedHeaders: ["*"] });
+  // app.enableCors({ allowedHeaders: ["*"] });
 
   app.useGlobalPipes(
     new ValidationPipe({

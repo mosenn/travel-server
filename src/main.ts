@@ -16,7 +16,7 @@ async function bootstrap() {
     //   'https://svtvapp.vercel.app/',
     // ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+    // credentials: true,
   });
   app.useGlobalPipes(
     new ValidationPipe({

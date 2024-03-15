@@ -8,6 +8,7 @@ async function bootstrap() {
   // app.enableCors({ origin: 'https://svtvapp.vercel.app', credentials: true });
 
   app.enableCors({
+    allowedHeaders: ["*"],
     origin: [
       'http://localhost:3000',
       'http://localhost:3000/',

@@ -5,7 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule , { cors: true });
 
-  app.enableCors({ origin: 'https://svtvapp.vercel.app', credentials: true });
+  // app.enableCors({ origin: 'https://svtvapp.vercel.app', credentials: true });
 
   app.enableCors({
     origin: [

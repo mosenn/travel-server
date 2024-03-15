@@ -27,7 +27,7 @@ export class AuthService {
     //*hash password
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(body?.password, salt);
-    console.log('hash password', hash);
+    // console.log('hash password', hash);
     const Newuser = await this.prismaService.user.create({
       data: {
         ...body,
@@ -52,8 +52,8 @@ export class AuthService {
         throw new UnauthorizedException();
       }
     //* token
-    const { id, email, image , name, password } = user;
-    const token = await this.jwtService.sign({ id, email, image, name , password });
+    const { id, email, image , username, password } = user;
+    const token = await this.jwtService.sign({ id, email, image, username , password });
     console.log(user);
     return { token: token, data: user, message: `${user.email} login` };
   }

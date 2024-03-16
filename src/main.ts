@@ -5,21 +5,19 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule , { cors: true });
 
-  // app.enableCors({ origin: 'https://svtvapp.vercel.app', credentials: true });
 
   app.enableCors({
-    // allowedHeaders: ["*"],
+ 
     origin: [
       'http://localhost:3000',
       'http://localhost:3000/',
-      'https://svtvapp.vercel.app',
-      'https://svtvapp.vercel.app/',
+      'https://teravapp.vercel.app/',
+      'https://teravapp.vercel.app',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   });
 
-  // app.enableCors({ allowedHeaders: ["*"] });
 
   app.useGlobalPipes(
     new ValidationPipe({

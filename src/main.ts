@@ -12,15 +12,27 @@ async function bootstrap() {
   //* chat gpt
 
   // Enable CORS for your Vercel deployment
+    //* work on local and sv is not work
+  // app.enableCors({
+  //   origin: [
+  //     'https://teravapp.vercel.app',
+  //     'http://localhost:3000',
+  //     'https://teravapp.vercel.app/',
+  //   ],
+  //   allowedHeaders: ['Content-Type'],
+  //   methods: ['POST', 'GET', 'PUT', 'DELETE'], // Only allow POST requests, adjust according to your needs
+  // });
+  //* meduim website
+
   app.enableCors({
-    origin: [
+      origin: [
       'https://teravapp.vercel.app',
       'http://localhost:3000',
       'https://teravapp.vercel.app/',
     ],
-    allowedHeaders: ['Content-Type'],
-    methods: ['POST', 'GET', 'PUT', 'DELETE'], // Only allow POST requests, adjust according to your needs
-  });
+    methods: [ "GET", "POST", "PUT", "DELETE","OPTIONS", "PATCH"],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+ });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule ,{cors:true, });
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   //* work on local
   // app.enableCors();
@@ -12,7 +12,7 @@ async function bootstrap() {
   //* chat gpt
 
   // Enable CORS for your Vercel deployment
-    //* work on local and sv is not work
+  //* work on local and sv is not work
   // app.enableCors({
   //   origin: [
   //     'https://teravapp.vercel.app',
@@ -25,14 +25,21 @@ async function bootstrap() {
   //* meduim website
 
   app.enableCors({
-      origin: [
+    origin: [
       'https://teravapp.vercel.app',
       'http://localhost:3000',
       'https://teravapp.vercel.app/',
     ],
-    methods: [ "GET", "POST", "PUT", "DELETE","OPTIONS", "PATCH"],
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
- });
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+    ],
+    credentials: true,
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

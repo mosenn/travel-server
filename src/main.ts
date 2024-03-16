@@ -8,12 +8,7 @@ async function bootstrap() {
 
   app.enableCors({
     allowedHeaders: ["*"],
-    origin: [
-      'http://localhost:3000',
-      'http://localhost:3000/',
-      'https://teravapp.vercel.app/',
-      'https://teravapp.vercel.app',
-    ],
+    origin:"*",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     // credentials: true,
   });

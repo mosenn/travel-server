@@ -15,10 +15,9 @@ async function bootstrap() {
       'https://teravapp.vercel.app',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+    // credentials: true,
   });
 
-  // app.enableCors({ allowedHeaders: ["*"] });
 
   app.useGlobalPipes(
     new ValidationPipe({

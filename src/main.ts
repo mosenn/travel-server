@@ -8,8 +8,15 @@ async function bootstrap() {
   //* work on local
   // app.enableCors();
   //* test
-  app.enableCors({ allowedHeaders: ["*"] });
-  
+  // app.enableCors({ allowedHeaders: ["*"] });
+  //* chat gpt 
+
+   // Enable CORS for your Vercel deployment
+   app.enableCors({
+    origin: ["https://teravapp.vercel.app" , 'http://localhost:3000'],
+    allowedHeaders: ['Content-Type'],
+    methods: ['POST' , "GET" , "PUT" , "DELETE"], // Only allow POST requests, adjust according to your needs
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

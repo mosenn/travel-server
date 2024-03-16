@@ -9,13 +9,17 @@ async function bootstrap() {
   // app.enableCors();
   //* test
   // app.enableCors({ allowedHeaders: ["*"] });
-  //* chat gpt 
+  //* chat gpt
 
-   // Enable CORS for your Vercel deployment
-   app.enableCors({
-    origin: ["https://teravapp.vercel.app" , 'http://localhost:3000'],
+  // Enable CORS for your Vercel deployment
+  app.enableCors({
+    origin: [
+      'https://teravapp.vercel.app',
+      'http://localhost:3000',
+      'https://teravapp.vercel.app/',
+    ],
     allowedHeaders: ['Content-Type'],
-    methods: ['POST' , "GET" , "PUT" , "DELETE"], // Only allow POST requests, adjust according to your needs
+    methods: ['POST', 'GET', 'PUT', 'DELETE'], // Only allow POST requests, adjust according to your needs
   });
   app.useGlobalPipes(
     new ValidationPipe({

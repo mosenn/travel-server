@@ -7,7 +7,7 @@ async function bootstrap() {
 
 
   app.enableCors({
- 
+    allowedHeaders: ["*"],
     origin: [
       'http://localhost:3000',
       'http://localhost:3000/',
@@ -18,6 +18,7 @@ async function bootstrap() {
     credentials: true,
   });
 
+  // app.enableCors({ allowedHeaders: ["*"] });
 
   app.useGlobalPipes(
     new ValidationPipe({

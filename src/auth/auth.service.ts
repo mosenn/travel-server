@@ -15,7 +15,7 @@ export class AuthService {
     public jwtService: JwtService,
   ) {}
   async register(body: registerDto) {
-    console.log(body)
+    console.log(body);
     const user = await this.prismaService.user.findUnique({
       where: {
         email: body.email,
@@ -35,7 +35,7 @@ export class AuthService {
         password: hash,
       },
     });
-    return { message: 'user is register', Newuser };
+    return { message: 'user is register', status: 201, Newuser };
   }
 
   async login(body: loginDto) {
@@ -48,13 +48,19 @@ export class AuthService {
       throw new BadRequestException('email or password is worng');
     }
     //* compare password
-      const compare = await bcrypt.compare(body.password , user.password)
-      if(!compare) {
-        throw new UnauthorizedException();
-      }
+    const compare = await bcrypt.compare(body.password, user.password);
+    if (!compare) {
+      throw new UnauthorizedException();
+    }
     //* token
-    const { id, email, image , username, password } = user;
-    const token = await this.jwtService.sign({ id, email, image, username , password });
+    const { id, email, image, username, password } = user;
+    const token = await this.jwtService.sign({
+      id,
+      email,
+      image,
+      username,
+      password,
+    });
     console.log(user);
     return { token: token, data: user, message: `${user.email} login` };
   }

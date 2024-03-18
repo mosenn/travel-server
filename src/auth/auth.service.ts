@@ -1,5 +1,4 @@
 import {
- 
   BadRequestException,
   Injectable,
   UnauthorizedException,
@@ -63,6 +62,11 @@ export class AuthService {
       password,
     });
     console.log(user);
-    return { token: token, data: user, message: `${user.email} login` };
+    return {
+      status: 200,
+      token: token,
+      data: user,
+      message: `${user.email} login`,
+    };
   }
 }

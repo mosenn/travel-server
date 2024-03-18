@@ -1,4 +1,5 @@
 import {
+ 
   BadRequestException,
   Injectable,
   UnauthorizedException,
@@ -50,7 +51,7 @@ export class AuthService {
     //* compare password
     const compare = await bcrypt.compare(body.password, user.password);
     if (!compare) {
-      throw new UnauthorizedException();
+      throw new BadRequestException('email or password is worng');
     }
     //* token
     const { id, email, image, username, password } = user;
